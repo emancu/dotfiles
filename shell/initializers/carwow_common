@@ -1,0 +1,19 @@
+if [ -z $CARWOW_COMMON_PROJECTS ]; then
+  ssh-add ~/.ssh/carwow
+
+  git config user.email "emiliano.mancuso@carwow.co.uk"
+  git config user.name "Emiliano Mancuso"
+
+  export COUNTRY='uk'
+
+  #export AWS_ACCESS_KEY_ID="secret-key"
+  #export AWS_SECRET_ACCESS_KEY="secret-key"
+  #export AWS_SESSION_TOKEN="secret-key"
+
+  source ./carwow_common_secrets
+
+  # aliases
+  alias hdblog="heroku logs -p postgres -t"
+
+  export CARWOW_COMMON_PROJECTS=true
+fi

@@ -1,0 +1,16 @@
+if [ -z $APPLE_RMM ]; then
+  echo 'Project setup..'
+
+  ssh-add ~/.ssh/citrusbyte_rsa
+
+  alias grni="grep -rniI --exclude-dir='.git' --exclude-dir='node_modules'"
+
+  alias server="passenger start -p [3000]"
+  alias brunch_start="brunch watch --server"
+
+  ##
+  # Functions
+  ##
+
+  export APPLE_RMM=true
+fi

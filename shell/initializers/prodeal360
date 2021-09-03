@@ -1,0 +1,29 @@
+if [ -z $PRODEAL_SETUP ]; then
+  echo 'Project setup..'
+
+  export PATH=$PATH:/Users/emancu/citrusbyte/prodeal360/bin
+
+  ssh-add ~/.ssh/citrusbyte_rsa
+
+  alias grni="grep -rniI --exclude-dir='.git' --exclude-dir='node_modules' --exclude-dir='./public/pattern-library' --exclude-dir='_build' --exclude-dir='deps' --exclude-dir='./priv/static' --exclude-dir='./web/static'"
+
+  alias mt="mix test"
+  alias xt="iex -S mix test"
+  alias mtt="mix test --trace"
+  alias xtt="iex -S mix test --trace"
+  alias xmtt="iex -S mix test --trace"
+
+  ##
+  # Functions
+  ##
+
+  pdeploy(){
+    echo "DEPLOY_ENV=$1 mix edeliver update --branch=$(__git_branch) --start-deploy"
+  };
+
+  pmigrate(){
+    echo "DEPLOY_ENV=$1 mix edeliver migrate"
+  };
+
+  export PRODEAL_SETUP=true
+fi

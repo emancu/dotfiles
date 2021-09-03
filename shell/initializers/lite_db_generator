@@ -1,0 +1,19 @@
+if [ -z $LITE_DB_GENERATOR_SETUP ]; then
+  echo 'Project setup..'
+
+  . ~/.bash/initializers/carwow_common
+
+  export HEROKU_APP=$CARWOW_HEROKU_LITE_DB_GENERATOR
+
+  alias hrc="heroku run rails c     --app $HEROKU_APP"
+  alias hrcde="heroku run rails c   --app $HEROKU_APP_DE"
+  alias hrces="heroku run rails c   --app $HEROKU_APP_ES"
+  alias hdb="heroku psql DATABASE   --app $HEROKU_APP"
+  alias hdbde="heroku psql DATABASE --app $HEROKU_APP_DE"
+  alias hdbes="heroku psql DATABASE --app $HEROKU_APP_ES"
+
+  alias pgbackups="heroku pg:backups --app carwow-lite-db-generator"
+  alias pgblog="heroku logs --app carwow-lite-db-generator"
+
+  export LITE_DB_GENERATOR_SETUP=true
+fi

@@ -1,0 +1,16 @@
+if [ -z $APPLE_AV ]; then
+  echo 'Project setup..'
+
+  ssh-add ~/.ssh/citrusbyte_rsa
+
+  alias grni="grep -rniI --exclude-dir='.git' --exclude-dir='node_modules'"
+
+  alias server="bundle exec rails server"
+  alias webpack="scripts/webpack-dev-server --config config/webpack.config.js --host 0.0.0.0"
+
+  ##
+  # Functions
+  ##
+
+  export APPLE_AV=true
+fi

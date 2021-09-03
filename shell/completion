@@ -1,0 +1,17 @@
+# Completion for sudo command
+complete -c -f command sudo
+
+# Autocomplete - without scp because directory/file autocomplete is better
+# complete -o default -o nospace -W "$(grep host < ~/.ssh/config | cut -d ' ' -f2)" ssh
+complete -W "$(grep host < ~/.ssh/config | cut -d ' ' -f2)" ssh
+
+# Git & man completion script
+if [ -d $HOMEBREW_PREFIX/etc/bash_completion.d ]; then
+  . $HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.bash \
+    $HOMEBREW_PREFIX/etc/bash_completion.d/man
+fi
+
+# Brew completion script
+if [ -f $HOMEBREW_PREFIX/Library/Contributions/brew_bash_completion.sh ]; then
+  . $HOMEBREW_PREFIX/Library/Contributions/brew_bash_completion.sh
+fi

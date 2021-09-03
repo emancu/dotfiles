@@ -1,0 +1,21 @@
+if [ -z $DEALS_SERVICE_SETUP ]; then
+  echo 'Project setup..'
+
+  . ~/.bash/initializers/carwow_common
+
+  export HEROKU_APP=$CARWOW_HEROKU_DEALS_APP-uk
+  export HEROKU_APP_DE=$CARWOW_HEROKU_DEALS_APP-de
+  export HEROKU_APP_ES=$CARWOW_HEROKU_DEALS_APP-es
+
+  alias hrc="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP"
+  alias hrcde="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP_DE"
+  alias hrces="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP_ES"
+  alias hdb="heroku psql DATABASE   --app $HEROKU_APP"
+  alias hdbde="heroku psql DATABASE --app $HEROKU_APP_DE"
+  alias hdbes="heroku psql DATABASE --app $HEROKU_APP_ES"
+
+  alias hdbf="heroku psql DATABASE_FOLLOWER --app $HEROKU_APP"
+
+  export DEALS_SERVICE_SETUP=true
+fi
+

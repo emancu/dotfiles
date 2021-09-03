@@ -1,0 +1,78 @@
+### Aliases for shell ###
+alias ll='ls -lh'
+alias la='ls -AF'
+alias ..='cd ..'
+alias huge_files="find ~ -type f -size +100000k -exec ls -lh {} \;"
+alias wget="curl -O"
+alias grni="grep -rniI --exclude-dir={.git,node_modules,public,elm-stuff,vendor}"
+alias gg="git grep -niI"
+alias irb="pry"
+alias mtt="mix test --trace"
+alias xtt="iex -S mix test --trace"
+alias t="bundle exec rspec"
+
+alias clima="curl -4 https://wttr.in"
+
+### End of Aliases for shell ###
+
+### Aliases for developer ###
+#alias nginx_stop="nginx -s stop"
+alias be="bundle exec"
+
+# mySQL configuration
+alias mysql='mysql -uroot'
+alias mystart='mysql.server start'
+alias mydown='mysql.server stop'
+
+# redis
+alias redis_start="redis-server /usr/local/etc/redis.conf"
+
+# postgres
+alias pg_start="pg_ctl -D /usr/local/var/postgres start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+# git
+alias undo_commit="git reset --soft HEAD^"
+alias pull="git pull --prune"
+alias push="git push -u origin --force-with-lease"
+alias st="git status -s"
+alias oo="__git_stash_show"
+alias prune="git fetch --prune; __git_list_stale_branches"
+alias prunef="__git_list_stale_branches | xargs git branch -D"
+alias track="__git_track_branch"
+### End of Aliases for developer ###
+
+### Aliases by project ###
+
+## Citrusbyte ##
+CITRUSBYTE_HOME="~/citrusbyte"
+alias solar="cd $CITRUSBYTE_HOME/solar-retina"
+alias pro="cd $CITRUSBYTE_HOME/prodeal360"
+alias av="cd $CITRUSBYTE_HOME/apple/apple-retail-av-internal"
+alias rmm="cd $CITRUSBYTE_HOME/apple/apple-rmm"
+
+## Own projects ##
+PROJECTS="${HOME}/Code"
+alias cr="cd $PROJECTS/crystal"
+alias ork="cd $PROJECTS/ork"
+
+## Carwow ##
+export CARWOW_HOME="${PROJECTS}/carwow"
+alias dealers="cd $CARWOW_HOME/dealers_site"
+alias research="cd $CARWOW_HOME/research_site"
+alias quotes="cd $CARWOW_HOME/quotes_site"
+alias flatmin="cd $CARWOW_HOME/flatmin"
+alias perf="cd $CARWOW_HOME/performance_stats_service"
+alias pdealers="cd ~/projects/carwow/dealers_site"
+alias presearch="cd ~/projects/carwow/research_site"
+alias pquotes="cd ~/projects/carwow/quotes_site"
+alias pflatmin="cd ~/projects/carwow/flatmin"
+alias pperf="cd ~/projects/carwow/performance_stats_service"
+alias bes="__business_events_subscribers"
+alias gcarwow="__grep_all_carwow_projects"
+alias vup="cd $CARWOW_HOME/box/; vagrant up"
+alias vresume="cd $CARWOW_HOME/box/; vagrant resume"
+alias vsuspend="cd $CARWOW_HOME/box/; vagrant suspend"
+alias vhalt="cd $CARWOW_HOME/box/; vagrant halt"
+alias vssh="cd $CARWOW_HOME/box/; vagrant ssh"
+

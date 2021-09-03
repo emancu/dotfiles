@@ -1,0 +1,72 @@
+# Enable profiling for zsh
+# Then, run `zprof` to see a report
+zmodload zsh/zprof
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Homebrew configuration
+export HOMEBREW_PREFIX='/usr/local'
+
+if [ -f $DOTFILES_PATH/shell/functions ]; then
+  . $DOTFILES_PATH/shell/functions
+fi
+
+if [ -f $DOTFILES_PATH/shell/aliases ]; then
+  . $DOTFILES_PATH/shell/aliases
+fi
+
+if [ -f $DOTFILES_PATH/shell/zcompletion ]; then
+  . $DOTFILES_PATH/shell/zcompletion
+fi
+
+if [ -f $DOTFILES_PATH/shell/secrets ]; then
+  . $DOTFILES_PATH/shell/secrets
+fi
+
+export EDITOR='vim'
+export BUNDLER_EDITOR="mate"
+
+# Ctags path presedence
+export PATH="/usr/local/opt/openssl/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
+
+export HISTSIZE=100000
+export CLICOLOR=1 # for terminal colors
+export GREP_OPTIONS='--color=auto'
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Options
+# http://zsh.sourceforge.net/Doc/Release/Options.html#Options
+setopt AUTO_PUSHD # Make `cd` push the old directory onto the directory stack
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_NO_STORE
+setopt HIST_SAVE_NO_DUPS
+setopt NO_AUTO_MENU
+setopt NO_MENU_COMPLETE
+setopt NO_SHARE_HISTORY
+unsetopt SHARE_HISTORY
+setopt PROMPT_SUBST
+
+export HISTORY_IGNORE="(history|pwd|ls|ll|la|gitx|git st|git sp|st|pull|push|git pull|prune|prunef|git ss|git br|git sl|mvim|git log|git diff|rubocop -D|rubocop -a|flatmin|dealers|quotes|irb|rails c)"
+
+PROMPT='$(__select_ps1)'
+RPROMPT="[%D{%y/%m/%f}|%@]"
+
+chpwd() {
+  __setup_directory;
+}
+
+# Load rbenv
+if [ -f ./.ruby-version ]; then
+  eval "$(rbenv init -)"
+fi
+
+# rbenv installs ruby without openssl@1.1 by default. So enabling this on (brew --prefix)
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"

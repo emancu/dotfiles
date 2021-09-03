@@ -1,0 +1,18 @@
+#!/bin/zsh
+#
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+if type brew &>/dev/null; then
+  # Use `brew --prefix` if there is an error here!
+  FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
+fi
+autoload -Uz compinit && compinit
+
+# Git & man completion script
+if [ -d $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]; then
+  . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh \
+    $HOMEBREW_PREFIX/etc/bash_completion.d/man
+fi
