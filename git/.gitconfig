@@ -1,0 +1,58 @@
+[user]
+  name = Emiliano Mancuso
+  email = emiliano.mancuso@gmail.com
+[github]
+  user = emancu
+  email = emiliano.mancuso@gmail.com
+[gist]
+  private = yes
+  browse = no
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ci = commit
+  co = checkout
+  st = status -s
+  br = branch -a
+  ss = stash save
+  sl = stash list
+  sp = stash pop
+  undo = reset --soft HEAD^
+  unstage = reset HEAD
+  graph = log --decorate --oneline --all --graph
+  fix = commit --amend --no-edit
+[diff]
+  color = auto
+[pager]
+  color = true
+[status]
+  color = auto
+[core]
+  excludesfile = ~/.gitignore
+  quotepath = false
+  trustctime = false
+  attributesfile = /Users/emancu/.gitattributes
+[color]
+  ui = auto
+[push]
+  default = current
+[branch]
+  autosetuprebase = always
+  autosetupmerge = true
+[rerere]
+  enabled = 1
+[merge]
+  keepBackup = false
+[filter "hawser"]
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
+[filter "lfs"]
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
