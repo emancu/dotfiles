@@ -1,0 +1,3 @@
+[submodule "vim/pack/plugins/start/FlyGrep.vim"]
+	path = vim/pack/plugins/start/FlyGrep.vim
+	url = git@github.com:wsdjeg/FlyGrep.vim.git
