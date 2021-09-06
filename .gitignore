@@ -1,2 +1,3 @@
 shell/secrets
+shell/initializers/carwow_common_secrets
 .DS_Store
