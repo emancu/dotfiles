@@ -2,7 +2,7 @@ set et
 set sw=4
 set ts=4
 
-" elixir
+" elm
 call IMAP('\.', "|> ", 'elm')
 call IMAP('\]', "|> ", 'elm')
 call IMAP('\/', "|> ", 'elm')

@@ -33,8 +33,8 @@ fi
 
 # Setup configs
 # TODO: Check the config is not there already!
-echo "source $DOTFILES_PATH/vim/vimrc.vim" >> ~/.vimrc
 
+ln -s $DOTFILES_PATH/vim ~/.vim
 ln -s $DOTFILES_PATH/git/.gitattributes ~/.gitattributes
 ln -s $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
 ln -s $DOTFILES_PATH/git/.gitignore ~/.gitignore
@@ -46,7 +46,6 @@ else
   echo "export DOTFILES_PATH=$DOTFILES_PATH" >> ~/.zshrc
   echo "source $DOTFILES_PATH/shell/zshrc" >> ~/.zshrc
 fi
-
 
 
 if [[ ! -s ${CODESPACES} ]]; then

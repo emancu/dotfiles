@@ -1,20 +1,19 @@
-" Configure GUI
-set guitablabel=%N.\ %t%(\ %M%)
-set showtabline=2
-set guioptions-=T " Removes top toolbar
-set guioptions-=F " Remove footer
-set guioptions-=m " Remove menu bar
-set guioptions+=a " Add autoselect
+scriptencoding utf-8
+set encoding=utf-8
+
+" Backspace behavior
+set backspace=indent,eol,start
+
 set guioptions-=r " Removes right hand scroll bar
-set guioptions-=L " Removes left hand scroll bar for vertical Splits
 
-set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)
-set winminheight=0
-
-" Font
-set guifont=Menlo:h11
+silent! set re=1
+" Try something to colorize vim and save timeo
+" http://www.eecs.harvard.edu/~cduan/technical/vi/vi-4.shtml
+"syn sync fromstart
+syn sync minlines=60
 
 " Color settings
+set t_Co=256
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -30,11 +29,6 @@ endif
 colorscheme one
 set background=dark
 
-syn sync minlines=200
-
-" Disable MacVim mapping for CMD+E
-macm Edit.Find.Use\ Selection\ for\ Find	key=<nop>
-
 " Load common settings
-source ~/.vim/abbreviations.vim
-source ~/.vim/config/config.vim
+source $DOTFILES_PATH/vim/abbreviations.vim
+source $DOTFILES_PATH/vim/config/config.vim

@@ -88,9 +88,9 @@ set noballooneval " Disable tooltip
 set balloondelay=20000
 
 " Other files.
-source ~/.vim/config/gist.vim
-source ~/.vim/config/mappings.vim
-source ~/.vim/config/ctrlp.vim
-source ~/.vim/config/to-github.vim
-source ~/.vim/config/git-gutter.vim
-source ~/.vim/config/tagbar.vim
+source $DOTFILES_PATH/vim/config/gist.vim
+source $DOTFILES_PATH/vim/config/mappings.vim
+source $DOTFILES_PATH/vim/config/ctrlp.vim
+source $DOTFILES_PATH/vim/config/to-github.vim
+source $DOTFILES_PATH/vim/config/git-gutter.vim
+source $DOTFILES_PATH/vim/config/tagbar.vim
