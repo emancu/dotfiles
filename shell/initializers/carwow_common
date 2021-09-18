@@ -10,7 +10,7 @@ if [ -z $CARWOW_COMMON_PROJECTS ]; then
   #export AWS_SECRET_ACCESS_KEY="secret-key"
   #export AWS_SESSION_TOKEN="secret-key"
 
-  source ./carwow_common_secrets
+  source $DOTFILES_PATH/shell/initializers/carwow_common_secrets
 
   # aliases
   alias hdblog="heroku logs -p postgres -t"

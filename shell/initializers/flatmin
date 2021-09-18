@@ -1,7 +1,7 @@
 if [ -z $FLATMIN_SETUP ]; then
   echo 'Project setup..'
 
-  . ~/.bash/initializers/carwow_common
+  source $DOTFILES_PATH/shell/initializers/carwow_common
 
   export HEROKU_APP=$CARWOW_HEROKU_FLATMIN_APP-eu
   export HEROKU_APP_DE=$CARWOW_HEROKU_FLATMIN_APP-de
