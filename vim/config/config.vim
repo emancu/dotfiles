@@ -4,6 +4,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " Basic settings
+silent! set regexpengine=1
 syntax on
 filetype on
 filetype indent on
@@ -13,6 +14,12 @@ set wrap
 " Change default mapleader to a comma
 let mapleader = ","
 let maplocalleader = ","
+
+" Try something to colorize vim and save time
+" http://www.eecs.harvard.edu/~cduan/technical/vi/vi-4.shtml
+"syn sync fromstart
+syn sync minlines=60
+
 
 " Folds
 set fillchars="vert:YXXY,fold:-"
@@ -39,6 +46,9 @@ set statusline+=\ %f%m%r%h%w    " relative path
 set statusline+=%=              " seperate between right- and left-aligned
 set statusline+=%([%l,%v]%)     " line and column
 set statusline+=%(\ %Y\ %)      " file type
+
+" Font
+set guifont=Menlo:h11
 
 
 " Cursor line
@@ -87,6 +97,21 @@ set hlsearch
 set noballooneval " Disable tooltip
 set balloondelay=20000
 
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+set termguicolors
+
+" Colours
+"colorscheme jellybeans
+colorscheme one
+set background=dark
+
+" Backspace behavior
+set backspace=indent,eol,start
+
 " Other files.
 source $DOTFILES_PATH/vim/config/gist.vim
 source $DOTFILES_PATH/vim/config/mappings.vim
@@ -94,3 +119,4 @@ source $DOTFILES_PATH/vim/config/ctrlp.vim
 source $DOTFILES_PATH/vim/config/to-github.vim
 source $DOTFILES_PATH/vim/config/git-gutter.vim
 source $DOTFILES_PATH/vim/config/tagbar.vim
+source $DOTFILES_PATH/vim/abbreviations.vim
