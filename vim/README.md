@@ -1,49 +1,66 @@
-Usage
-=====
+vim-packages
+============
 
-First, backup your existing `.vim` directory:
+Vim 8 added a native way to load third-party packages.
 
-    mv ~/.vim ~/.vim-backup
+How it works
+------------
 
-And backup your configuration files:
+In `~/.vim` a new folder needs to be created within this folder to hold plugins.
+I decided to keep `colors` and `plugins` in different directories, but this is not a requirement.
 
-    mv ~/.vimrc ~/.vimrc-backup
-    mv ~/.gvimrc ~/.gvimrc-backup
+    mkdir -p ~/.vim/pack/{colors,plugins}/start
 
-Now clone this repository:
+Within this folder a further folder `start` is needed to hold plugins. Vim will pick up any packages added to this folder and automatically load the plugins.
 
-    git clone git://github.com/emancu/vim-files.git ~/.vim
+Optionally another folder `opt` may be created to hold packages that are not loaded automatically.
+Packages added in the `opt` folder may be loaded using
 
-In your `~/.vimrc` put this:
+    :packadd packagename
 
-    source ~/.vim/vimrc.vim
 
-And in your `~/.gvimrc` put this:
+Managing packages
+-----------------
 
-    source ~/.vim/gvimrc.vim
+The new functionality in vim does not add anything for managing plugins; it just loads them. How you manage plugins is up to you.
 
-You may want to explore the `~/.vim/config` directory to see what's
-included and `~/.vim/config/mappings.vim` to see how to use the
-available tools.
+Managing packages is directly equivalent to using Pathogen so moving a plugin folder into place, cloning a git repository or using git submodules to move packages into the start folder are all options. I decided to use `git submodules`
 
-Fuzzy Finder like TextMate plugin
----------------------------------
 
-To use this plugin, you need ruby interpretation for your vim or MacVim.
+### Adding a package
 
-To check if it's available, you can run a simple command like:
+Here is an example of how to add a package using Vim’s native approach to packages and `git submodules`.
 
-    :ruby
 
-If the error displayed is:
+    cd ~/.vim/pack/plugins/start
+    git submodule init
+    git submodule add git@github.com:preservim/tagbar.git
+    git add .gitmodules tagbar
+    git commit -m "Add tagbar plugin"
 
-    Argument required
 
-You have ruby interpretation enabled! Otherwise, if error is like a:
+### Updating a package ###
 
-    Sorry, the command is not available in this version
+To update packages is also just a case of updating git submodules.
 
-You have to compile your own vim, please check this site for instructions
+    git submodule update --remote --merge
+    git commit
 
-    http://www.elblogolico.com.ar/2010/02/macvim-mi-editor.html
 
+### Removing a package ###
+
+Removing a package is just a case of removing the git submodule.
+
+    cd ~/.vim/pack/plugins/start
+    git submodule deinit tagbar
+    git rm tagbar
+    rm -Rf .git/modules/vim/pack/start/tagbar
+    git commit -m "Remove tagbar plugin"
+
+
+Further reading
+===============
+
+- [Vim: So long Pathogen, hello native package loading](https://shapeshed.com/vim-packages/)
+- [:help packages](https://vimhelp.org/repeat.txt.html#packages)
+- [Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
