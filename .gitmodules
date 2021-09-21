@@ -1,21 +1,21 @@
-[submodule "pack/plugins/start/tagbar"]
-	path = pack/plugins/start/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule "pack/plugins/start/vim-go"]
-	path = pack/plugins/start/vim-go
+[submodule "vim/pack/plugins/start/tagbar"]
+	path = vim/pack/plugins/start/tagbar
+	url = git@github.com:preservim/tagbar.git
+[submodule "vim/pack/plugins/start/vim-go"]
+	path = vim/pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule "pack/plugins/start/vim-indent-guides"]
-	path = pack/plugins/start/vim-indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "pack/colors/start/neodark"]
-	path = pack/colors/start/neodark
+[submodule "vim/pack/colors/start/neodark"]
+	path = vim/pack/colors/start/neodark
 	url = https://github.com/KeitaNakamura/neodark.vim.git
-[submodule "pack/colors/start/onedark"]
-	path = pack/colors/start/onedark
+[submodule "vim/pack/colors/start/onedark"]
+	path = vim/pack/colors/start/onedark
 	url = https://github.com/joshdick/onedark.vim.git
-[submodule "pack/colors/start/vim-one"]
-	path = pack/colors/start/vim-one
+[submodule "vim/pack/colors/start/vim-one"]
+	path = vim/pack/colors/start/vim-one
 	url = https://github.com/rakr/vim-one.git
 [submodule "vim/pack/plugins/start/FlyGrep.vim"]
 	path = vim/pack/plugins/start/FlyGrep.vim
 	url = git@github.com:wsdjeg/FlyGrep.vim.git
+[submodule "vim/pack/plugins/start/vim-indent-guides"]
+	path = vim/pack/plugins/start/vim-indent-guides
+	url = git@github.com:nathanaelkane/vim-indent-guides.git
