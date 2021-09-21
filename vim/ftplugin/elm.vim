@@ -81,7 +81,7 @@ if get(g:, 'elm_format_autosave', 1)
 	autocmd!
 	autocmd BufWritePre *.elm call elm#Format()
 	autocmd BufWritePost *.elm call elm#util#EchoStored()
-   augroup END
+  augroup END
 endif
 if has('win32')
 	set viewdir=$HOME/vimfiles/views/
