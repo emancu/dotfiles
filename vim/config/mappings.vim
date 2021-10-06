@@ -14,8 +14,8 @@ map <F4> <ESC>:TestNearest<CR>
 map <S-F4> <ESC>:TestFile<CR>
 
 " Create a gist with the selection
-map <F5> <ESC>:'<,'>Gist -p<CR>
-map <S-F5> <ESC>:Gist -p<CR>
+"map <F5> <ESC>:'<,'>Gist -p<CR>
+"map <S-F5> <ESC>:Gist -p<CR>
 
 " Execute files with Ruby 1.9
 map <F6> <ESC>Odeb--<ESC>j:w<CR>

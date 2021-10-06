@@ -113,7 +113,6 @@ set background=dark
 set backspace=indent,eol,start
 
 " Other files.
-source $DOTFILES_PATH/vim/config/gist.vim
 source $DOTFILES_PATH/vim/config/mappings.vim
 source $DOTFILES_PATH/vim/config/ctrlp.vim
 source $DOTFILES_PATH/vim/config/to-github.vim
