@@ -71,9 +71,8 @@ augroup filetypedetect
   au BufNewFile,BufRead *.clj setf clojure
 
   " crystal
-  au BufNewFile,BufRead *.cr setf crystal
+  au BufNewFile,BufRead *.cr, Projectfile setf crystal
   au BufNewFile,BufRead *.ecr setf html
-  au BufNewFile,BufRead Projectfile setf crystal
 
   " Swift
   au BufNewFile,BufRead *.swift setf swift

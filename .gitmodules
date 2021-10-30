@@ -13,9 +13,6 @@
 [submodule "vim/pack/colors/start/vim-one"]
 	path = vim/pack/colors/start/vim-one
 	url = https://github.com/rakr/vim-one.git
-[submodule "vim/pack/plugins/start/FlyGrep.vim"]
-	path = vim/pack/plugins/start/FlyGrep.vim
-	url = git@github.com:wsdjeg/FlyGrep.vim.git
 [submodule "vim/pack/plugins/start/vim-indent-guides"]
 	path = vim/pack/plugins/start/vim-indent-guides
 	url = git@github.com:nathanaelkane/vim-indent-guides.git

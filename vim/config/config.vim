@@ -112,6 +112,9 @@ set background=dark
 " Backspace behavior
 set backspace=indent,eol,start
 
+" Disable netrw history
+let g:netrw_dirhistmax =0
+
 " Other files.
 source $DOTFILES_PATH/vim/config/mappings.vim
 source $DOTFILES_PATH/vim/config/ctrlp.vim

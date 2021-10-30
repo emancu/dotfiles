@@ -14,6 +14,4 @@ call IMAP('|/', "|> ", 'elm')
 call IMAP('=.', " => ", 'elm')
 call IMAP('-.', " ->", 'elm')
 call IMAP('-,', " ->", 'elm')
-call IMAP('0,', " ->", 'elm')
-call IMAP('-0', " ->", 'elm')
 
