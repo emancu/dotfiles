@@ -28,7 +28,7 @@ export EDITOR='vim'
 export BUNDLER_EDITOR="mate"
 
 # Ctags path presedence
-export PATH="/usr/local/opt/openssl/bin:/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 export HISTSIZE=100000

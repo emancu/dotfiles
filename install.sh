@@ -2,12 +2,34 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 DOTFILES_PATH="${HOME}/.config/dotfiles"
+
+if [[ ! -s ${CODESPACES} ]]; then
+  ln -fs $SCRIPT_DIR $DOTFILES_PATH
+fi
 
 # is_dev_environment checks whether the current box is a throwaway dev
 # environment, such as a codespace.
 function is_dev_environment() {
   ([[ "$(logname)" == "build" ]] || [[ ! -z ${CODESPACES} ]]) && [[ -z "${DOTFILES_FULL_INSTALL}" ]]
+}
+
+function brew_installed() {
+  local KERNEL=$(uname -s)
+  local ARCH=$(uname -p)
+
+  case "${KERNEL}-${ARCH}" in
+    Darwin-arm)
+      test -d /opt/homebrew
+      ;;
+    Darwin-i386)
+      test -d /usr/local/Homebrew
+      ;;
+    Linux-*)
+      test -d ~/.linuxbrew || test -d /home/linuxbrew/.linuxbrew
+      ;;
+  esac
 }
 
 
@@ -17,38 +39,28 @@ if [[ ! is_dev_environment ]]; then
 
   # install Brewfile
   eval "$(brew_dir)/bin/brew bundle --verbose"
-
-  # asdf_plugin_install "ruby"
-  # asdf_plugin_install "nodejs"
-
-  # asdf install ruby "${RUBY_VERSION}"
-  # asdf global ruby "${RUBY_VERSION}"
-
 else
+  echo "Installing missing dependencies.."
+
   sudo apt-get update
   sudo apt-get install -y \
     vim \
     exuberant-ctags
 fi
 
-# Setup configs
-# TODO: Check the config is not there already!
+git submodule update --init --recursive
 
-ln -s $DOTFILES_PATH/vim ~/.vim
-ln -s $DOTFILES_PATH/git/.gitattributes ~/.gitattributes
-ln -s $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
-ln -s $DOTFILES_PATH/git/.gitignore ~/.gitignore
+echo "Setup configs..."
+ln -fs $DOTFILES_PATH/vim ~/.vim
+ln -fs $DOTFILES_PATH/git/.gitattributes ~/.gitattributes
+ln -fs $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
+ln -fs $DOTFILES_PATH/git/.gitignore ~/.gitignore
 
-if [[ $0 == "bash" ]]; then
+echo "Add Shell RC files..."
+if [[ $SHELL == "/bin/bash" ]]; then
   echo "export DOTFILES_PATH=$DOTFILES_PATH" >> ~/.bashrc
   echo "source $DOTFILES_PATH/shell/profile" >> ~/.bashrc
 else
   echo "export DOTFILES_PATH=$DOTFILES_PATH" >> ~/.zshrc
   echo "source $DOTFILES_PATH/shell/zshrc" >> ~/.zshrc
-fi
-
-
-if [[ ! -s ${CODESPACES} ]]; then
-  git config --global --unset url.ssh://git@github.com/.insteadof
-  git config --global url.https://github.com/.insteadof=ssh://git@github.com/
 fi

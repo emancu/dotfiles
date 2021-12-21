@@ -8,10 +8,13 @@
 :cabbr ts cd ~/carwow/carwow-terraform
 :cabbr car-- cd ~/carwow/car-data-app
 :cabbr dl cd ~/carwow/deals_service
-:cabbr ds cd ~/carwow/dealers_site
 :cabbr pqs cd ~/projects/carwow/quotes_site
 :cabbr prs cd ~/projects/carwow/research_site
 :cabbr pfs cd ~/projects/carwow/flatmin
 :cabbr pts cd ~/projects/carwow/carwow-terraform
 :cabbr pcar-- cd ~/projects/carwow/car-data-app
 :cabbr pdl cd ~/projects/carwow/deals_service
+
+
+" Common carwow abbreviations
+:iabbrev dapi-- DealsServiceApiClient

@@ -24,11 +24,10 @@ if [ -f $DOTFILES_PATH/shell/secrets ]; then
 fi
 
 export EDITOR='vim'
-export BUNDLER_EDITOR="atom"
-export ATOM_PATH="/Users/emancu/Applications/Atom.app"
+export BUNDLER_EDITOR="mate"
 
 # Ctags path presedence
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/openssl/bin:$PATH"

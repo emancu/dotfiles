@@ -18,8 +18,8 @@ noremap <S-F4> <ESC>:TestFile<CR>
 "noremap <S-F5> <ESC>:Gist -p<CR>
 
 " Execute files with Ruby 1.9
-noremap <F6> <ESC>Odeb--<ESC>j:w<CR>
-noremap <S-F6> <ESC>Olog--<ESC>j:w<CR>
+map <F6> <ESC>Odeb--<ESC>j:w<CR>
+map <S-F6> <ESC>Olog--<ESC>j:w<CR>
 
 " F7 is mapped to open snippets
 " noremap <F7>
@@ -129,3 +129,7 @@ vnoremap K :m '<-2<CR>gv=gv
 " Keep selected text selected when fixing indentation
 vnoremap < <gv
 vnoremap > >gv
+
+" Show quick-window or errors
+nnoremap <Leader>e :copen<CR>
+

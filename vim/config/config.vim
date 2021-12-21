@@ -12,8 +12,8 @@ filetype plugin on
 set wrap
 
 " Change default mapleader to a comma
-let mapleader = ","
-let maplocalleader = ","
+let mapleader = ";"
+let maplocalleader = ";"
 
 " Try something to colorize vim and save time
 " http://www.eecs.harvard.edu/~cduan/technical/vi/vi-4.shtml
@@ -71,9 +71,9 @@ set nowritebackup
 set noswapfile
 
 " Show tabs and trailing spaces toggle with F11, remove with S-F11
-set listchars=tab:⏤⇢,trail:⇢
+set listchars=tab:⏤⇢,trail:⇢,extends:#,nbsp:.
 set list
-set complete=.,w,b,u
+set complete=.,w,b,u,t
 
 " Change file expansion to mimic shell behavior
 set wildmenu
@@ -94,12 +94,13 @@ set number
 set incsearch
 set hlsearch
 
-set noballooneval " Disable tooltip
-set balloondelay=20000
-
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+  set noballooneval " Disable tooltip
+  set balloondelay=20000
+  "let g:netrw_nobeval = 1
 endif
 
 set termguicolors
