@@ -13,7 +13,18 @@ if [ -z $CARWOW_COMMON_PROJECTS ]; then
   source $DOTFILES_PATH/shell/initializers/carwow_common_secrets
 
   # aliases
+  alias hdb="heroku psql DATABASE   --app \$HEROKU_APP"
+  alias hdbde="heroku psql DATABASE --app \$HEROKU_APP_DE"
+  alias hdbes="heroku psql DATABASE --app \$HEROKU_APP_ES"
+
+  alias hdbf="heroku psql DATABASE_FOLLOWER --app \$HEROKU_APP"
+
   alias hdblog="heroku logs -p postgres -t"
+
+  ## Rails
+  alias hrc="heroku run 'rails c -- --nomultiline' --app \$HEROKU_APP"
+  alias hrcde="heroku run 'rails c -- --nomultiline' --app \$HEROKU_APP_DE"
+  alias hrces="heroku run 'rails c -- --nomultiline' --app \$HEROKU_APP_ES"
 
   export CARWOW_COMMON_PROJECTS=true
 fi

@@ -7,15 +7,6 @@ if [ -z $FLATMIN_SETUP ]; then
   export HEROKU_APP_DE=$CARWOW_HEROKU_FLATMIN_APP-de
   export HEROKU_APP_ES=$CARWOW_HEROKU_FLATMIN_APP-es
 
-  # Improve this with autocompletion
-  alias hrc="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP"
-  alias hrcde="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP_DE"
-  alias hrces="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP_ES"
-  alias hdb="heroku psql DATABASE   --app $HEROKU_APP"
-  alias hdbf="heroku psql DATABASE_FOLLOWER --app $HEROKU_APP"
-  alias hdbde="heroku psql DATABASE --app $HEROKU_APP_DE"
-  alias hdbes="heroku psql DATABASE --app $HEROKU_APP_ES"
-
   alias dump_salesforce_schema='heroku run "bundle exec rake db:structure:dump && cat db/structure.sql"'
 
   export FLATMIN_SETUP=true

@@ -8,14 +8,5 @@ if [ -z $RESEARCH_SITE_SETUP ]; then
   export HEROKU_APP_DE=$CARWOW_HEROKU_RESEARCH_APP-de
   export HEROKU_APP_ES=$CARWOW_HEROKU_RESEARCH_APP-es
 
-  alias hrc="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP"
-  alias hrcde="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP_DE"
-  alias hrces="heroku run 'rails c -- --nomultiline' --app $HEROKU_APP_ES"
-  alias hdb="heroku psql DATABASE   --app $HEROKU_APP"
-  alias hdbde="heroku psql DATABASE --app $HEROKU_APP_DE"
-  alias hdbes="heroku psql DATABASE --app $HEROKU_APP_ES"
-
-  alias hdbf="heroku psql DATABASE_FOLLOWER --app $HEROKU_APP"
-
   export RESEARCH_SITE_SETUP=true
 fi
