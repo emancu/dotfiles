@@ -50,8 +50,6 @@ else
     vim
 fi
 
-git submodule update --init --recursive
-
 echo "Setup configs..."
 ln -fs $DOTFILES_PATH/vim ~/.vim
 ln -fs $DOTFILES_PATH/git/.gitattributes ~/.gitattributes
@@ -66,3 +64,6 @@ else
   echo "export DOTFILES_PATH=$DOTFILES_PATH" >> ~/.zshrc
   echo "source $DOTFILES_PATH/shell/zshrc" >> ~/.zshrc
 fi
+
+# Update vim plugins
+git submodule update --init --recursive
