@@ -1,18 +1,18 @@
 [submodule "vim/pack/plugins/start/tagbar"]
 	path = vim/pack/plugins/start/tagbar
-	url = git@github.com:preservim/tagbar.git
+	url = https://github.com/preservim/tagbar
 [submodule "vim/pack/plugins/start/vim-go"]
 	path = vim/pack/plugins/start/vim-go
-	url = https://github.com/fatih/vim-go.git
+	url = https://github.com/fatih/vim-go
 [submodule "vim/pack/colors/start/neodark"]
 	path = vim/pack/colors/start/neodark
-	url = https://github.com/KeitaNakamura/neodark.vim.git
+	url = https://github.com/KeitaNakamura/neodark.vim
 [submodule "vim/pack/colors/start/onedark"]
 	path = vim/pack/colors/start/onedark
-	url = https://github.com/joshdick/onedark.vim.git
+	url = https://github.com/joshdick/onedark.vim
 [submodule "vim/pack/colors/start/vim-one"]
 	path = vim/pack/colors/start/vim-one
-	url = https://github.com/rakr/vim-one.git
+	url = https://github.com/rakr/vim-one
 [submodule "vim/pack/plugins/start/vim-indent-guides"]
 	path = vim/pack/plugins/start/vim-indent-guides
-	url = git@github.com:nathanaelkane/vim-indent-guides.git
+	url = https://github.com.nathanaelkane/vim-indent-guides
