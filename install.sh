@@ -5,6 +5,9 @@ set -euo pipefail
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 DOTFILES_PATH="${HOME}/.config/dotfiles"
 
+# Make sure the config directory exists
+mkdir -p $HOME/.config
+
 if [[ ! -s ${CODESPACES} ]]; then
   ln -fs $SCRIPT_DIR $DOTFILES_PATH
 fi
@@ -44,8 +47,7 @@ else
 
   sudo apt-get update
   sudo apt-get install -y \
-    vim \
-    exuberant-ctags
+    vim
 fi
 
 git submodule update --init --recursive
