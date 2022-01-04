@@ -10,6 +10,7 @@ mkdir -p $HOME/.config
 
 if [[ ! -s ${CODESPACES} ]]; then
   ln -fs $SCRIPT_DIR $DOTFILES_PATH
+  exit 0 # TEMPORARY DISABLE
 fi
 
 # is_dev_environment checks whether the current box is a throwaway dev
