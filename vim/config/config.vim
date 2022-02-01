@@ -123,3 +123,6 @@ source $DOTFILES_PATH/vim/config/to-github.vim
 source $DOTFILES_PATH/vim/config/git-gutter.vim
 source $DOTFILES_PATH/vim/config/tagbar.vim
 source $DOTFILES_PATH/vim/abbreviations.vim
+
+" enable project speficific vimrc
+" set exrc
