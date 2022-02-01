@@ -1,0 +1,18 @@
+if [ -z $DSUTILS_SETUP ]; then
+  echo 'Project setup..'
+
+  export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+  export LDFLAGS="-L/usr/local/opt/python@3.7/lib"
+  export PKG_CONFIG_PATH="/usr/local/opt/python@3.7/lib/pkgconfig"
+
+  source $DOTFILES_PATH/shell/initializers/carwow_common
+
+  export HEROKU_APP=$CARWOW_HEROKU_DSUTILS
+
+  poetry env use 3.7
+  export PATH="$(poetry env info -p)/bin:$PATH"
+
+  export AIRFLOW_HOME="~/carwow/dsutils/airflow_home/"
+
+  export DSUTILS_SETUP=true
+fi
