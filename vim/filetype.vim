@@ -55,7 +55,7 @@ augroup filetypedetect
   au BufNewFile,BufRead *.toml setf toml
 
   " Scripts and Bash files
-  au BufNewFile,BufRead *.bash*, ~/.config/dotfiles/shell/* setf sh
+  au BufNewFile,BufRead *.bash*, ~/.config/dotfiles/shell/*, .setup, *.sh setf sh
 
   " Elixir
   au BufNewFile,BufRead *.ex,*.exs setf elixir

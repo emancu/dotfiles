@@ -33,6 +33,8 @@ function! CommentAndUncomment()
     call CommentForRuby()
   elseif stridx(file, ".sh") != -1
     call CommentForRuby()
+  elseif stridx(file, ".setup") != -1
+    call CommentForRuby()
   elseif stridx(file, ".hs") != -1
     call CommentForHaskell()
   elseif stridx(file, ".ex") != -1
