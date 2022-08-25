@@ -7,6 +7,8 @@
 :cabbr rs cd ~/carwow/research_site
 :cabbr fs cd ~/carwow/flatmin
 :cabbr ts cd ~/carwow/carwow-terraform
+:cabbr ws cd ~/carwow/carwow-warehousing
+:cabbr air cd ~/carwow/carwow-airflow
 :cabbr car-- cd ~/carwow/car-data-app
 :cabbr dl cd ~/carwow/deals_service
 

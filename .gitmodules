@@ -16,3 +16,9 @@
 [submodule "vim/pack/plugins/start/vim-indent-guides"]
 	path = vim/pack/plugins/start/vim-indent-guides
 	url = https://github.com.nathanaelkane/vim-indent-guides
+[submodule "vim/pack/colors/start/dracula"]
+	path = vim/pack/colors/start/dracula
+	url = https://github.com/dracula/vim
+[submodule "vim/pack/plugins/start/vim-terraform"]
+	path = vim/pack/plugins/start/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git

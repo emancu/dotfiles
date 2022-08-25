@@ -25,8 +25,8 @@ map <S-F6> <ESC>Olog--<ESC>j:w<CR>
 " noremap <F7>
 
 " Auto indent
-"noremap <F8> ggVG=''
 noremap <F8> :!bundle exec rubocop -a %<CR>:e!<CR>
+noremap <S-F8> gg=G``zz
 
 " Select word and find next occurrence
 noremap <F9> <ESC>*
@@ -132,4 +132,3 @@ vnoremap > >gv
 
 " Show quick-window or errors
 nnoremap <Leader>e :copen<CR>
-

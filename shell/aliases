@@ -1,28 +1,34 @@
 ### Aliases for shell ###
-alias ll='ls -lh'
-alias la='ls -AF'
-alias ..='cd ..'
+alias ls="exa"
+alias ll="ls -lh"
+alias la="ls -aF" # Exa doesn't support -A, it is built-in
+alias ..="cd .."
+alias ..2="cd ../.."
 alias huge_files="find ~ -type f -size +100000k -exec ls -lh {} \;"
 alias wget="curl -O"
 alias grni="grep -rniI --exclude-dir={.git,node_modules,public,elm-stuff,vendor}"
 alias gg="git grep -niI"
 alias irb="pry"
-alias mtt="mix test --trace"
-alias xtt="iex -S mix test --trace"
-alias t="bundle exec rspec"
 
+alias tree="exa --tree"
 alias clima="curl -4 https://wttr.in"
+alias ping="gping"
+alias dig="dog A AAAA NS MX TXT"
+
 
 ### End of Aliases for shell ###
 
 ### Aliases for developer ###
-#alias nginx_stop="nginx -s stop"
+alias t="bundle exec rspec"
 alias be="bundle exec"
 
+alias mtt="mix test --trace"
+alias xtt="iex -S mix test --trace"
+
 # mySQL configuration
-alias mysql='mysql -uroot'
-alias mystart='mysql.server start'
-alias mydown='mysql.server stop'
+alias mysql="mysql -uroot"
+alias mystart="mysql.server start"
+alias mydown="mysql.server stop"
 
 # redis
 alias redis_start="redis-server /usr/local/etc/redis.conf"
@@ -59,6 +65,9 @@ alias ork="cd $PROJECTS/ork"
 ## Carwow ##
 export CARWOW_HOME="${PROJECTS}/carwow"
 alias ds="cd $CARWOW_HOME/dsutils"
+alias air="cd $CARWOW_HOME/carwow-airflow"
+alias ter="cd $CARWOW_HOME/carwow-terraform"
+alias wh="cd $CARWOW_HOME/carwow-warehousing"
 alias dealers="cd $CARWOW_HOME/dealers_site"
 alias research="cd $CARWOW_HOME/research_site"
 alias quotes="cd $CARWOW_HOME/quotes_site"
