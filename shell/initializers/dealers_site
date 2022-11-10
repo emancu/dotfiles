@@ -8,7 +8,7 @@ if [ -z $DEALERS_SITE_SETUP ]; then
   export HEROKU_APP_ES=$CARWOW_HEROKU_DEALERS_APP-es
 
   export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+  # . "/usr/local/opt/nvm/nvm.sh"
 
   export DEALERS_SITE_SETUP=true
 fi

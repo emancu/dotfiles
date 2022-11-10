@@ -1,0 +1,9 @@
+if [ -z $WAREHOUSING_SETUP ]; then
+  echo 'Project setup..'
+
+  source $DOTFILES_PATH/shell/initializers/carwow_common
+
+  export HEROKU_APP=carwow-warehousing
+
+  export WAREHOUSING_SETUP=true
+fi

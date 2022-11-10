@@ -57,7 +57,7 @@ __setup_directory(){
 };
 
 __business_events_subscribers(){
-  grep -ni -A3 $1 $CARWOW_HOME/{dealers_site,research_site,quotes_site,flatmin,performance_stats_service}/config/business_events.yml
+  grep -ni -A3 $1 $CARWOW_HOME/{dealers_site,research_site,quotes_site,flatmin}/config/business_events.yml
 };
 
 __grep_all_carwow_projects() {

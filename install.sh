@@ -66,5 +66,11 @@ else
   echo "source $DOTFILES_PATH/shell/zshrc" >> ~/.zshrc
 fi
 
+
+if [[ ! -s ${CODESPACES} ]]; then
+  git config --global --unset url.ssh://git@github.com/.insteadof
+  git config --global url.https:/github.com/.insteadof=ssh://git@github.com/
+fi
+
 # Update vim plugins
 git submodule update --init --recursive
