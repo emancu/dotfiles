@@ -1,12 +1,12 @@
 # Enable profiling for zsh
 # Then, run `zprof` to see a report
-zmodload zsh/zprof
+#zmodload zsh/zprof
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Homebrew configuration
-export HOMEBREW_PREFIX='/usr/local'
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [ -f $DOTFILES_PATH/shell/functions ]; then
   . $DOTFILES_PATH/shell/functions
@@ -26,10 +26,6 @@ fi
 
 export EDITOR='vim'
 export BUNDLER_EDITOR="mate"
-
-# Ctags path presedence
-export PATH="/usr/local/opt/openssl/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
 
 export HISTSIZE=100000
 export CLICOLOR=1 # for terminal colors
@@ -54,7 +50,7 @@ setopt NO_SHARE_HISTORY
 unsetopt SHARE_HISTORY
 setopt PROMPT_SUBST
 
-export HISTORY_IGNORE="(history|pwd|ls|ll|la|gitx|git st|git sp|st|pull|push|git pull|prune|prunef|git ss|git br|git sl|mvim|git log|git diff|rubocop -D|rubocop -a|flatmin|dealers|quotes|irb|rails c)"
+export HISTORY_IGNORE="(history|pwd|ls|ll|la|gitx|git st|git sp|st|pull|push|git pull|prune|prunef|git ss|git br|git sl|mvim|git log|git diff|rubocop -D|rubocop -a|irb|rails c)"
 
 PROMPT='$(__select_ps1)'
 RPROMPT="[%D{%y/%m/%f}|%@]"
@@ -63,14 +59,6 @@ chpwd() {
   __setup_directory;
 }
 
-# Load rbenv
-if [ -f ./.ruby-version ]; then
-  eval "$(rbenv init -)"
-fi
-
-# rbenv installs ruby without openssl@1.1 by default. So enabling this on (brew --prefix)
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
-
 # Load [McFly](https://github.com/cantino/mcfly)
 # TL;DR: an upgraded ctrl-r where history results make sense for what you're working on right now.
 eval "$(mcfly init zsh)"
@@ -78,3 +66,6 @@ export MCFLY_FUZZY=true
 export MCFLY_RESULTS=20
 export MCFLY_RESULTS_SORT=LAST_RUN # default: RANK
 export MCFLY_HISTORY_LIMIT=10000
+
+# Source asdf
+source /opt/homebrew/opt/asdf/libexec/asdf.sh

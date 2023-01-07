@@ -25,11 +25,6 @@ alias be="bundle exec"
 alias mtt="mix test --trace"
 alias xtt="iex -S mix test --trace"
 
-# mySQL configuration
-alias mysql="mysql -uroot"
-alias mystart="mysql.server start"
-alias mydown="mysql.server stop"
-
 # redis
 alias redis_start="redis-server /usr/local/etc/redis.conf"
 
@@ -50,40 +45,13 @@ alias track="__git_track_branch"
 
 ### Aliases by project ###
 
-## Citrusbyte ##
-CITRUSBYTE_HOME="~/citrusbyte"
-alias solar="cd $CITRUSBYTE_HOME/solar-retina"
-alias pro="cd $CITRUSBYTE_HOME/prodeal360"
-alias av="cd $CITRUSBYTE_HOME/apple/apple-retail-av-internal"
-alias rmm="cd $CITRUSBYTE_HOME/apple/apple-rmm"
+## Projects ##
+FRESHA_HOME="~/fresha"
+alias lsf="ls $FRESHA_HOME/system/apps/ $FRESHA_HOME/system/apps/shedul-umbrella/apps/"
+alias fs="cd $FRESHA_HOME/system"
+alias fum="cd $FRESHA_HOME/system; cd ./apps/shedul-umbrella/"
+alias infra="cd $FRESHA_HOME/infrastructure"
 
-## Own projects ##
-PROJECTS="${HOME}/Code"
-alias cr="cd $PROJECTS/crystal"
-alias ork="cd $PROJECTS/ork"
 
-## Carwow ##
-export CARWOW_HOME="${PROJECTS}/carwow"
-alias ds="cd $CARWOW_HOME/dsutils"
-alias air="cd $CARWOW_HOME/carwow-airflow"
-alias ter="cd $CARWOW_HOME/carwow-terraform"
-alias wh="cd $CARWOW_HOME/carwow-warehousing"
-alias dealers="cd $CARWOW_HOME/dealers_site"
-alias research="cd $CARWOW_HOME/research_site"
-alias quotes="cd $CARWOW_HOME/quotes_site"
-alias flatmin="cd $CARWOW_HOME/flatmin"
-alias deals="cd $CARWOW_HOME/deals_service"
-alias pdealers="cd ~/projects/carwow/dealers_site"
-alias presearch="cd ~/projects/carwow/research_site"
-alias pquotes="cd ~/projects/carwow/quotes_site"
-alias pflatmin="cd ~/projects/carwow/flatmin"
-alias pdeals="cd ~/projects/carwow/deals_service"
-alias bes="__business_events_subscribers"
-alias gcarwow="__grep_all_carwow_projects"
 
-alias vup="cd $CARWOW_HOME/box/; vagrant up"
-alias vresume="cd $CARWOW_HOME/box/; vagrant resume"
-alias vsuspend="cd $CARWOW_HOME/box/; vagrant suspend"
-alias vhalt="cd $CARWOW_HOME/box/; vagrant halt"
-alias vssh="cd $CARWOW_HOME/box/; vagrant ssh"
 

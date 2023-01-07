@@ -25,7 +25,7 @@ __ci_status(){
 
 if [ ${ZSH_VERSION} ]; then
   alias __set_git_ps1='echo "%F{red}[`__git_branch`]%F{cyan}@%1~\$%f "'
-  alias __set_normal_ps1='echo "%F{cyan}%n@eproc:%1~\$%f "'
+  alias __set_normal_ps1='echo "%F{cyan}%n@eprof:%1~\$%f "'
 elif [ ${BASH_VERSION} ]; then
   alias __set_git_ps1='export PS1="\[$(tput setaf 1)\][$(__git_branch)]$(__ci_status)\[$(tput setaf 6)\]@\W\$ \[$(tput sgr0)\]"'
   alias __set_normal_ps1='PS1="\[$(tput setaf 6)\]\u@\h:\W\$ \[$(tput sgr0)\]"'
@@ -66,4 +66,25 @@ __grep_all_carwow_projects() {
 
 __git_list_stale_branches(){
   git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}'
+};
+
+# Search files like `git grep`.
+# ARG1: file pattern (append '*' to work as grep)
+# ARG2..N: directories to look up
+#
+# https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Parameter-Expansion
+ff(){
+  arg1=${1:+$1"*"}
+  arg2=${2:-"./"}
+  set -- "${arg1}" "${arg2}" "${@:3}"
+
+  find $@[2,-1] -iname $1
+};
+
+# This one performs an exact match
+ffe(){
+  arg2=${2:-"./"}
+  set -- "$1" "${arg2}" "${@:3}"
+
+  find $@[2,-1] -iname $1
 };

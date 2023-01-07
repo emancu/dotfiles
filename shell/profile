@@ -2,10 +2,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Homebrew configuration
-export HOMEBREW_PREFIX='/usr/local'
-
-# rbenv installs ruby without openssl@1.1 by default. So enabling this on (brew --prefix)
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/openssl@1.1"
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [ -f $DOTFILES_PATH/shell/completion ]; then
   . $DOTFILES_PATH/shell/completion
@@ -26,12 +24,6 @@ fi
 export EDITOR='vim'
 export BUNDLER_EDITOR="mate"
 
-# Ctags path presedence
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-# Add RVM to PATH for scripting
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-
 export CLICOLOR=1 # for terminal colors
 export GREP_OPTIONS='--color=auto'
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -39,7 +31,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # History
 shopt -s histappend
 export HISTCONTROL=ignoredups
-export HISTIGNORE="pwd:ls:ll:la:gitx:git st:git sp:pp:st:ss:pull:push:git pull:prune:prunef:git ss:git br:git sl:mvim:mh:git log:git diff:api:mapi:learn:rubocop -D:rubocop -a:flatmin:dealers:quotes:irb:rails c"
+export HISTIGNORE="pwd:ls:ll:la:gitx:git st:git sp:pp:st:ss:pull:push:git pull:prune:prunef:git ss:git br:git sl:mvim:mh:git log:git diff:irb"
 export HISTTIMEFORMAT='%F @ %T - '
 
 # Pretty PS1

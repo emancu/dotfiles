@@ -1,17 +1,17 @@
-Instalation
-===========
+Installation
+============
 
 ## Bash
 
 Make sure your `.bashrc` is loads the following file:
 
-    echo "source "realpath .shell/profile" >> .bashrc
+    echo "source $(realpath ./profile)" >> .bashrc
 
 ## Zsh
 
 Make sure your `.bashrc` is loads the following file:
 
-    echo "source "realpath .shell/zshrc" >> .zshrc
+    echo "source $(realpath ./zshrc)" >> .zshrc
 
 
 Or just add that line to your `/etc/profile` file.
