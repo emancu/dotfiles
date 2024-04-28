@@ -5,8 +5,10 @@ brew "macvim"
 tap "cantino/mcfly"
 brew "mcfly"
 
-# Alternative for `ls`
-brew "exa"
+brew "asdf"
+
+# Alternative for `ls` and `tree`
+brew "eza"
 
 # Alternative for `ping`
 brew "gping"

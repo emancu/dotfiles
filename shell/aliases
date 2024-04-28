@@ -1,5 +1,5 @@
 ### Aliases for shell ###
-alias ls="exa"
+alias ls="eza"
 alias ll="ls -lh"
 alias la="ls -aF" # Exa doesn't support -A, it is built-in
 alias ..="cd .."
