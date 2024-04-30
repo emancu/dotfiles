@@ -1,4 +1,5 @@
 Brewfile.lock.json
 shell/secrets
 shell/initializers/carwow_common_secrets
+shell/initializers/fresha_common_secrets
 .DS_Store

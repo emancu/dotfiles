@@ -1,0 +1,6 @@
+alias aws-login='aws-vault login -d 12h $AWS_PROFILE'
+alias aws-profiles='cat ~/.aws/config | grep '\''\[profile'\'' | sed -r '\''s/^\[profile (.*)\]$/\1/'\'
+alias aws-shell='aws-vault exec -d 12h -n $AWS_PROFILE'
+alias aws-vpn-fix=$'sudo /usr/libexec/PlistBuddy -c "Add :LSUIElement bool true" "/Applications/AWS VPN Client/AWS VPN Client.app/Contents/Info.plist";\n    sudo codesign --force --deep --sign - "/Applications/AWS VPN Client/AWS VPN Client.app"'
+
+alias sso='aws-sso-util login'
