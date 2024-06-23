@@ -29,8 +29,8 @@ alias xtt="iex -S mix test --trace"
 alias redis_start="redis-server /usr/local/etc/redis.conf"
 
 # postgres
-alias pg_start="pg_ctl -D /usr/local/var/postgres start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias pg_start="pg_ctl -D /opt/homebrew/var/postgresql@14 start"
+alias pg_stop="pg_ctl -D /opt/homebrew/var/postgresql@14 stop -s -m fast"
 
 # git
 alias undo_commit="git reset --soft HEAD^"

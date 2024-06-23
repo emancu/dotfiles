@@ -1,33 +1,14 @@
 ### Functions for shell ###
 
-__ci_status(){
-  if [ -n "`__git_branch`" ]; then
-    local created_at="$(stat -f %m .git/ci-status 2> /dev/null || echo 0)"
-    local current_time="$(date +%s)"
-    local file_path="$(git rev-parse --show-toplevel)/.git/ci-status"
-
-    [ "$(expr $current_time - $created_at)" -gt 30 ] && (hub ci-status > $file_path)
-    local ci_status="$(cat $file_path)"
-
-    case $ci_status in
-      "success")
-        echo "✅"
-        ;;
-      "pending")
-        echo "🚧"
-        ;;
-      *)
-        echo "🔥"
-        ;;
-    esac
-  fi
+__setup_directory(){
+  [ -e .setup ] && source ./.setup
 };
 
 if [ ${ZSH_VERSION} ]; then
   alias __set_git_ps1='echo "%F{red}[`__git_branch`]%F{cyan}@%1~\$%f "'
   alias __set_normal_ps1='echo "%F{cyan}%n@eprof:%1~\$%f "'
 elif [ ${BASH_VERSION} ]; then
-  alias __set_git_ps1='export PS1="\[$(tput setaf 1)\][$(__git_branch)]$(__ci_status)\[$(tput setaf 6)\]@\W\$ \[$(tput sgr0)\]"'
+  alias __set_git_ps1='export PS1="\[$(tput setaf 1)\][$(__git_branch)]\[$(tput setaf 6)\]@\W\$ \[$(tput sgr0)\]"'
   alias __set_normal_ps1='PS1="\[$(tput setaf 6)\]\u@\h:\W\$ \[$(tput sgr0)\]"'
 fi
 
@@ -39,10 +20,6 @@ __git_branch(){
   echo "$(git branch --show-current 2> /dev/null)"
 };
 
-__select_ps1(){
-  [ -n "`__git_branch`" ] && __set_git_ps1 || __set_normal_ps1
-};
-
 __git_track_branch(){
   local branch=`__git_branch`
   if [ -n "$branch" ]; then
@@ -52,20 +29,12 @@ __git_track_branch(){
   fi
 };
 
-__setup_directory(){
-  [ -e .setup ] && source ./.setup
-};
-
-__business_events_subscribers(){
-  grep -ni -A3 $1 $CARWOW_HOME/{dealers_site,research_site,quotes_site,flatmin}/config/business_events.yml
-};
-
-__grep_all_carwow_projects() {
-  grep -rniI --exclude-dir={node_modules,.git,public,tmp,log,box,elm-stuff,spec,migrate,vendor,assets,webpacker,graph-maker} $1 $CARWOW_HOME/.
-};
-
 __git_list_stale_branches(){
   git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}'
+};
+
+__select_ps1(){
+  [ -n "`__git_branch`" ] && __set_git_ps1 || __set_normal_ps1
 };
 
 # Search files like `git grep`.

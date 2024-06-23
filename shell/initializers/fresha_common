@@ -1,6 +1,16 @@
+source $DOTFILES_PATH/shell/initializers/fresha_common_secrets
+
 alias aws-login='aws-vault login -d 12h $AWS_PROFILE'
 alias aws-profiles='cat ~/.aws/config | grep '\''\[profile'\'' | sed -r '\''s/^\[profile (.*)\]$/\1/'\'
 alias aws-shell='aws-vault exec -d 12h -n $AWS_PROFILE'
 alias aws-vpn-fix=$'sudo /usr/libexec/PlistBuddy -c "Add :LSUIElement bool true" "/Applications/AWS VPN Client/AWS VPN Client.app/Contents/Info.plist";\n    sudo codesign --force --deep --sign - "/Applications/AWS VPN Client/AWS VPN Client.app"'
 
 alias sso='aws-sso-util login'
+
+###
+# Functions
+###
+
+__aws_rds_logs(){
+  aws logs tail /aws/rds/instance/$1/postgresql --follow
+};

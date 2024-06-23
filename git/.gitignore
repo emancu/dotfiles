@@ -3,3 +3,8 @@
 .ruby-version
 .DS_Store
 .tool-versions
+*.beam
+*.protocols
+_build/
+*.erl
+deps/
