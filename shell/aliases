@@ -3,18 +3,17 @@ alias ls="eza"
 alias ll="ls -lh"
 alias la="ls -aF" # Exa doesn't support -A, it is built-in
 alias ..="cd .."
-alias ..2="cd ../.."
+alias ...="cd ../.."
 alias huge_files="find ~ -type f -size +100000k -exec ls -lh {} \;"
 alias wget="curl -O"
 alias grni="grep -rniI --exclude-dir={.git,node_modules,public,elm-stuff,vendor}"
 alias gg="git grep -niI"
 alias irb="pry"
 
-alias tree="exa --tree"
+alias tree="eza --tree --level=2"
 alias clima="curl -4 https://wttr.in"
 alias ping="gping"
 alias dig="dog A AAAA NS MX TXT"
-
 
 ### End of Aliases for shell ###
 
@@ -25,6 +24,7 @@ alias be="bundle exec"
 alias mtt="mix test --trace"
 alias xtt="iex -S mix test --trace"
 
+alias h="houston"
 # redis
 alias redis_start="redis-server /usr/local/etc/redis.conf"
 
@@ -47,11 +47,8 @@ alias track="__git_track_branch"
 
 ## Projects ##
 FRESHA_HOME="~/fresha"
-alias lsf="ls $FRESHA_HOME/system/apps/ $FRESHA_HOME/system/apps/shedul-umbrella/apps/"
 alias fs="cd $FRESHA_HOME/system"
 alias fum="cd $FRESHA_HOME/system; cd ./apps/shedul-umbrella/"
 alias infra="cd $FRESHA_HOME/infrastructure"
-
-
-
-
+alias di="cd $FRESHA_HOME/data-engineering-infrastructure"
+alias de="cd $FRESHA_HOME/data-engineering"

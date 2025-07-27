@@ -1,11 +1,31 @@
 source $DOTFILES_PATH/shell/initializers/fresha_common_secrets
 
+alias help="alias | grep help_"
+
+alias sso='aws-sso-util login'
 alias aws-login='aws-vault login -d 12h $AWS_PROFILE'
 alias aws-profiles='cat ~/.aws/config | grep '\''\[profile'\'' | sed -r '\''s/^\[profile (.*)\]$/\1/'\'
 alias aws-shell='aws-vault exec -d 12h -n $AWS_PROFILE'
 alias aws-vpn-fix=$'sudo /usr/libexec/PlistBuddy -c "Add :LSUIElement bool true" "/Applications/AWS VPN Client/AWS VPN Client.app/Contents/Info.plist";\n    sudo codesign --force --deep --sign - "/Applications/AWS VPN Client/AWS VPN Client.app"'
 
-alias sso='aws-sso-util login'
+
+## RDS aliases
+
+alias help_logs="Use 'tspin' or 'tailspin' for nice colors"
+
+alias rdslogs='__aws_rds_logs '
+
+alias rdslist='__aws_rds_list '
+alias rdslist-prod='__aws_rds_list "\-production"'
+
+alias rdssecrets='__aws_rds_secrets '
+
+alias ppg='(){ houston psql production $1; }'
+
+alias help_rds="There are a few aliases for RDS, to read logs, instances, secrets and psql. Run alias | grep rds"
+
+## Kafka aliases
+
 
 ###
 # Functions
@@ -13,4 +33,29 @@ alias sso='aws-sso-util login'
 
 __aws_rds_logs(){
   aws logs tail /aws/rds/instance/$1/postgresql --follow
+};
+
+
+__aws_rds_list(){
+  if [ ! -e "/tmp/rds_instances.json" ]; then
+    aws rds describe-db-instances --output json > "/tmp/rds_instances.json"
+
+    # Schedule deletion after 1 day
+    echo "rm /tmp/rds_instances.json" | at now + 1 day
+  fi
+
+  jq -r '.DBInstances.[] | [.DBInstanceIdentifier, .DBInstanceClass, "\(.AllocatedStorage) GB", "v\(.EngineVersion)", "IOPS \(.Iops)", .StorageType] | @tsv' /tmp/rds_instances.json | column -ts $'\t' | grep ${1:-""}
+
+};
+
+__datadog_clean_csv(){
+  if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+    echo "Usage: __datadog_clean_csv <input_file>"
+    echo "Removes first two columns and converts timestamp to date"
+    echo "Example: __datadog_clean_csv data.csv"
+    return 0
+  fi
+
+  echo "date,value"
+  tail -n +2 $1 | cut -d',' -f3- | sed 's/T[^,]*Z//'
 };

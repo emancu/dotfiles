@@ -5,11 +5,7 @@ if [ -z $FRESHA__SYSTEM ]; then
 
   source $DOTFILES_PATH/shell/initializers/fresha_common
 
-  alias ppg='echo '\''Go to scripts/psql-prod and run => \n\t $ aws-profiles \t\t | To select the AWS profile \n\t $ aws-login <PROFILE> \t\t | To login to AWS secrets \n\n\t $ AWS_PROFILE=fresha-production-database-admins ./psql-prod.rb connect <DATABASE NAME> human_rw'\'
-
-  alias help="alias | grep help_"
-  alias help_logs="Use `tspin` or `tailspin` for nice colors"
+  alias help_steampipe="Query AWS resources as Postgresql. Run 'steampipe query', then use '.help' or '.inspect' or just write SQL."
 
   export FRESHA__SYSTEM=true
 fi
-
