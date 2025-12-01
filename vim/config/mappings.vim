@@ -132,3 +132,8 @@ vnoremap > >gv
 
 " Show quick-window or errors
 nnoremap <Leader>e :copen<CR>
+
+noremap ]w :ALENext<CR>
+noremap [w :ALEPrevious<CR>
+noremap ]e :ALENext<CR>
+noremap [e :ALEPrevious<CR>
