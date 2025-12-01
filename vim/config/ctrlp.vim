@@ -1,12 +1,21 @@
-let g:ctrlp_root_markers          = ['.git']
-let g:ctrlp_working_path_mode     = 'rw'
+let g:ctrlp_root_markers          = ['.ctrlp_mark', 'mix.exs', 'Gemfile', '.git']
+let g:ctrlp_working_path_mode     = 'ra'
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_match_window_bottom   = 0
 let g:ctrlp_max_depth             = 40
 let g:ctrlp_max_height            = 20
 let g:ctrlp_max_files             = 20000
 let g:ctrlp_max_history           = 0
-let g:ctrlp_custom_ignore         = '\v[\/](\.git|\.svn|log|tmp|_build|deps|node_modules|elm-stuff|logs|\.pyc|dbt_packages|target)$'
+"let g:ctrlp_custom_ignore         = '\v[\/](\.git|\.svn|log|tmp|_build|deps|node_modules|elm-stuff|logs|\.pyc|dbt_packages|target)$'
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir': join([
+    \ '\v[\/]\.(git|svn|elixir_ls|terraform|cargo|npm|yarn|cache|bundle|rbenv|pytest_cache|dbt|venv)$',
+    \ '\v[\/](_build|deps|node_modules|elm-stuff|target|vendor|__pycache__|dbt_packages)$',
+    \ '\v[\/](coverage|dist|build|logs?|tmp|cache|public\/build|terraform\.tfstate\.d)$'
+  \ ], '|'),
+  \ 'file': '\v\.(exe|so|dll|class|pyc|pyo|pyd|swp|swo|log|tmp|beam|tfstate|tfstate\.backup|dump)$'
+  \ }
 
 " Enable this in case I want to use a different command to list files
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
