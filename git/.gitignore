@@ -8,3 +8,5 @@
 _build/
 *.erl
 deps/
+.ctrlp_mark
+.claude/

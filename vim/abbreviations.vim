@@ -2,6 +2,7 @@
 
 " Fresha projects
 :cabbr fs cd ~/fresha/system/
+:cabbr hs cd ~/fresha/houston/
 :cabbr fum cd ~/fresha/system/apps/shedul-umbrella/apps/
 :cabbr infra cd ~/fresha/infrastructure
 

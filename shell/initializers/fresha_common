@@ -56,6 +56,6 @@ __datadog_clean_csv(){
     return 0
   fi
 
-  echo "date,value"
+  echo "time,value"
   tail -n +2 $1 | cut -d',' -f3- | sed 's/T[^,]*Z//'
 };

@@ -24,6 +24,7 @@ alias be="bundle exec"
 alias mtt="mix test --trace"
 alias xtt="iex -S mix test --trace"
 
+alias tf="terragrunt"
 alias h="houston"
 # redis
 alias redis_start="redis-server /usr/local/etc/redis.conf"
