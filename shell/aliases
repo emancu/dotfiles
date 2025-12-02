@@ -48,8 +48,9 @@ alias track="__git_track_branch"
 
 ## Projects ##
 FRESHA_HOME="~/fresha"
-alias fs="cd $FRESHA_HOME/system"
-alias fum="cd $FRESHA_HOME/system; cd ./apps/shedul-umbrella/"
+alias hs="cd $FRESHA_HOME/houston"
+alias fs="cd $FRESHA_HOME/app-shedul"
+alias fum="cd $FRESHA_HOME/app-shedul-umbrella/"
 alias infra="cd $FRESHA_HOME/infrastructure"
 alias di="cd $FRESHA_HOME/data-engineering-infrastructure"
 alias de="cd $FRESHA_HOME/data-engineering"

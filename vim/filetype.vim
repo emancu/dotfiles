@@ -44,7 +44,8 @@ augroup filetypedetect
   au BufNewFile,BufRead *.txt setf asciidoc
 
   " JSON
-  au BufNewFile,BufRead *.js,*.json setf javascript
+  au BufNewFile,BufRead *.json setf json
+  au BufNewFile,BufRead *.js setf javascript
   " set all `es6` extensions to javascript
   au BufRead,BufNewFile *.{es6,es6.js} setf javascript
 
@@ -71,7 +72,7 @@ augroup filetypedetect
   au BufNewFile,BufRead *.clj setf clojure
 
   " crystal
-  au BufNewFile,BufRead *.cr, Projectfile setf crystal
+  au BufNewFile,BufRead *.cr,Projectfile setf crystal
   au BufNewFile,BufRead *.ecr setf html
 
   " Swift
