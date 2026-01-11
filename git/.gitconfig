@@ -55,11 +55,7 @@
   smudge = git media smudge %f
 #[url "ssh://git@github.com/"]
 #	insteadOf = https://github.com/
-[url "https://"]
-	insteadOf = git://
 [url "https://github.com/"]
 	insteadof = git@github.com:
-[url "https://github.com/"]
-	insteadof = git://github.com/
 [init]
 	defaultBranch = main

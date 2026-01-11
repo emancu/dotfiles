@@ -47,7 +47,7 @@ ff(){
   arg2=${2:-"./"}
   set -- "${arg1}" "${arg2}" "${@:3}"
 
-  find $@[2,-1] -iname $1
+  find $@[2,-1] -iname "$1"
 };
 
 # This one performs an exact match

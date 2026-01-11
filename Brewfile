@@ -1,6 +1,8 @@
 brew "git"
 brew "bash-completion"
-brew "macvim"
+
+" It will install it in /Applications too
+cask "macvim"
 
 tap "cantino/mcfly"
 brew "mcfly"
