@@ -5,6 +5,9 @@ export LC_ALL=en_US.UTF-8
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# User-specific, no sudo needed, modern XDG standard
+export PATH="$HOME/.local/bin:$PATH"
+
 if [ -f $DOTFILES_PATH/shell/completion ]; then
   . $DOTFILES_PATH/shell/completion
 fi

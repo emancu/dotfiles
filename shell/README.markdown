@@ -3,13 +3,13 @@ Installation
 
 ## Bash
 
-Make sure your `.bashrc` is loads the following file:
+Make sure your `.bashrc` loads the following file:
 
     echo "source $(realpath ./profile)" >> .bashrc
 
 ## Zsh
 
-Make sure your `.bashrc` is loads the following file:
+Make sure your `.bashrc` loads the following file:
 
     echo "source $(realpath ./zshrc)" >> .zshrc
 

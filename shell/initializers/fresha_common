@@ -1,5 +1,7 @@
 source $DOTFILES_PATH/shell/initializers/fresha_common_secrets
 
+ulimit -n 10240
+
 alias help="alias | grep help_"
 
 alias sso='aws-sso-util login'
