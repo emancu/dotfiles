@@ -2,4 +2,6 @@
 "set t_Co=256
 
 " Load common settings
-source $DOTFILES_PATH/vim/config/config.vim
+" GUI apps on macOS don't inherit shell environment variables
+" On cold start, $DOTFILES_PATH is undefined → source commands fail silently
+source $MYVIMDIR/config/config.vim

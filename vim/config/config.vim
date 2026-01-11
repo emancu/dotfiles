@@ -4,7 +4,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " Basic settings
-silent! set regexpengine=1
+" Deprecated in Vim 9
+" silent! set regexpengine=1
 syntax on
 filetype on
 filetype indent on
@@ -94,7 +95,7 @@ set number
 set incsearch
 set hlsearch
 
-if (has("nvim"))
+if has("nvim")
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 else
@@ -117,15 +118,15 @@ set backspace=indent,eol,start
 let g:netrw_dirhistmax =0
 
 " Other files.
-source $DOTFILES_PATH/vim/config/mappings.vim
-source $DOTFILES_PATH/vim/config/ctrlp.vim
-source $DOTFILES_PATH/vim/config/to-github.vim
-source $DOTFILES_PATH/vim/config/git-gutter.vim
-source $DOTFILES_PATH/vim/config/tagbar.vim
-source $DOTFILES_PATH/vim/config/vim-terraform.vim
-source $DOTFILES_PATH/vim/config/vim-go.vim
-source $DOTFILES_PATH/vim/config/ale.vim
-source $DOTFILES_PATH/vim/abbreviations.vim
+source $MYVIMDIR/config/mappings.vim
+source $MYVIMDIR/config/ctrlp.vim
+source $MYVIMDIR/config/to-github.vim
+source $MYVIMDIR/config/git-gutter.vim
+source $MYVIMDIR/config/tagbar.vim
+source $MYVIMDIR/config/vim-terraform.vim
+source $MYVIMDIR/config/vim-go.vim
+source $MYVIMDIR/config/ale.vim
+source $MYVIMDIR/abbreviations.vim
 
 " enable project speficific vimrc
 " set exrc
